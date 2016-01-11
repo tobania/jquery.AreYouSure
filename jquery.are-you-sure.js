@@ -83,7 +83,7 @@
 
     var getOrigValue = function($field, $form) {
       if ($field.attr('id')) {
-        return $form.data('ays-orig-field-id-' + $field.attr('name'));
+        return $form.data('ays-orig-field-id-' + $field.attr('id'));
       }
       else if ($field.attr('type') !== 'radio' && $field.attr('name')) {
         return $form.data('ays-orig-field-name-' + $field.attr('name'));
@@ -128,7 +128,7 @@
       var isDirty = false;
       $fields.each(function() {
         $field = $(this);
-        if (isFieldDirty($field)) {
+        if (isFieldDirty($field, $form)) {
           isDirty = true;
           return false; // break
         }
